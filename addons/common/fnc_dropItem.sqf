@@ -9,8 +9,8 @@ Description:
     of trouble, or when able to remove _item from _unit true in case of success
 
 Parameters:
-    _unit - the unit that should drop the item <OBJECT>
-    _item - class name of the item to drop <STRING>
+    _unit     - the unit that should drop the item <OBJECT>
+    _item     - class name of the item to drop <STRING>
     _skipAnim - does not play the animation when true (optional, default: false) <BOOLEAN>
 
 Returns:
@@ -32,7 +32,7 @@ private _return = [_unit, _item] call CBA_fnc_removeItem;
 
 if (_return) then {
     if (!_skipAnim) then {
-        _unit switchMove "ainvpknlmstpslaywrfldnon_1";
+        if (!_skipAnim) then { _unit switchMove "ainvpknlmstpslaywrfldnon_1"; };
     };
 
     private _weaponHolder = nearestObject [_unit, "WeaponHolder"];
