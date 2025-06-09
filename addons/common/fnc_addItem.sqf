@@ -27,7 +27,7 @@ Author:
 ---------------------------------------------------------------------------- */
 SCRIPT(addItem);
 
-params [["_unit", objNull, [objNull]], ["_item", "", [""]], ["_verify", false, [false]], ["_animate", true, [true]]];
+params [["_unit", objNull, [objNull]], ["_item", "", [""]], ["_verify", false, [false]], ["_skipanim", false, [true]]];
 
 private _return = false;
 
@@ -55,7 +55,7 @@ if (_verify) then {
     } else {
         private _vehicle = vehicle _unit;
         if (_vehicle isEqualTo _unit) then {
-            if (_animate) then { _unit switchMove "ainvpknlmstpslaywrfldnon_1"; };
+            if (!_skipanim) then { _unit switchMove "ainvpknlmstpslaywrfldnon_1"; };
 
             private _weaponHolder = nearestObject [_unit, "WeaponHolder"];
 
